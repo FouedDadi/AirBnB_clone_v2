@@ -3,6 +3,7 @@
 import json
 
 
+
 class FileStorage:
     """This class manages storage of hbnb models in JSON format"""
     __file_path = 'file.json'
@@ -63,3 +64,9 @@ class FileStorage:
         o_k = "{}.{}".format(obj.__class__.__name__, obj.id)
         if o_k in self.__objects.keys():
             del self.__objects[o_k]
+
+    def close(self):
+        """
+        calling reload method
+        """
+        self.reload()
