@@ -19,7 +19,7 @@ script that starts a Flask web application:
 """
 
 from models import storage
-from flask import Flask, escape, request
+from flask import Flask
 from flask import render_template
 
 app = Flask(__name__)
@@ -27,6 +27,11 @@ app = Flask(__name__)
 
 @app.route('/cities_by_states', strict_slashes=False)
 def ct_list():
+    """[ct_list method]
+
+    Returns:
+        [html]: [html page]
+    """
     sts = storage.all("State")
     return render_template("8-cities_by_states.html", sts=sts)
 
