@@ -34,8 +34,10 @@ class DBStorage:
         l_o = []
         if cls is None:
             for t in {State, City, Amenity, Place, Review, User}:
-                l.extend(self.__session.query(t).all())
+                l_o.extend(self.__session.query(t).all())
         else:
+            if isinstance(cls, str):
+                cls = eval(cls)
             l_o = self.__session.query(cls).all()
         return {"{}.{}".format(type(o).__name__, o.id): o for o in l_o}
 

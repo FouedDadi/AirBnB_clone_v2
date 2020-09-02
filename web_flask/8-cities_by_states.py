@@ -18,7 +18,6 @@ script that starts a Flask web application:
     LI tag: description of one City: <city.id>: <B><city.name></B>
 """
 
-from models.state import State
 from models import storage
 from flask import Flask, escape, request
 from flask import render_template
@@ -28,7 +27,7 @@ app = Flask(__name__)
 
 @app.route('/cities_by_states', strict_slashes=False)
 def ct_list():
-    sts = storage.all(State).values()
+    sts = storage.all("State")
     return render_template("8-cities_by_states.html", sts=sts)
 
 
