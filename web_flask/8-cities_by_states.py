@@ -32,7 +32,7 @@ def ct_list():
     Returns:
         [html]: [html page]
     """
-    sts = storage.all("State")
+    sts = storage.all("State").values()
     return render_template("8-cities_by_states.html", sts=sts)
 
 
